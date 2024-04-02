@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Natashazr/sit725-2024-t1-prac3.git"
+    "url": "git+https://github.com/KaushiRajapakshe/SIT725.git"
   },
   "keywords": [
     "Express",
@@ -18,9 +18,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Natashazr/sit725-2024-t1-prac4/issues"
+    "url": "https://github.com/KaushiRajapakshe/SIT725/tree/sit725-2024-t1-prac4-2/issues"
   },
-  "homepage": "https://github.com/Natashazr/sit725-2024-t1-prac4#readme",
+  "homepage": "https://github.com/KaushiRajapakshe/SIT725/blob/sit725-2024-t1-prac4-2#readme",
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "^4.17.2",
