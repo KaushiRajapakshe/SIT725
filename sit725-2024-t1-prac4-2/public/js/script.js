@@ -1,8 +1,34 @@
-const addCards = (items) => {
+const clickMe = () => {
+    alert("Thanks for clicking me. Hope you have a nice day!")
+}
+const getAllCards = () => {
+    $.get('/api/cards', (response) => {
+        if (response.statusCode == 200) {
+            getCarts(response.data);
+        }
+        else {
+            console.log(response)
+        }
+    })
+}
+
+const addCard = (cart) => {
+    $.ajax({
+        url: '/api/card',
+        data: cart,
+        type: 'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload();
+        }
+    })
+}
+
+const getCarts = (items) => {
     items.forEach((item) => {
         let itemToAppend =
             '<div class="col s4 center-align">' +
-            '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="' +
+            '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img id="cardImg" class="activator" src="' +
             item.path +
             '">' +
             '</div><div class="card-content">' +
@@ -30,16 +56,14 @@ const submitForm = () => {
     formData.description = $('#description').val();
 
     console.log(formData);
-    postCat(formData);
+    addCard(formData);
 }
 
-//* update your own code 
-
-$(document).ready(function(){
+$(document).ready(function () {
     $('.materialboxed').materialbox();
-    $('#formSubmit').click(()=>{
+    $('#formSubmit').click(() => {
         submitForm();
     });
     $('.modal').modal();
-    getAllCats();
+    getAllCards();
 });

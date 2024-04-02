@@ -1,0 +1,63 @@
+/* General
+================================================
+*/
+
+body {
+    font-family: apple-system;
+    font-size: 14px;
+    line-height: 24px;
+    background-color: #b3e5fc;
+    /* color: black; */
+}
+
+.footer {
+    margin-top: 10vh;
+    padding-bottom: 15vh;
+    text-align: center;
+}
+
+.text {
+    display: inline-block;
+    color: black;
+}
+
+#imageSize {
+    height: 30vh;
+    width: 30vw;
+}
+
+.nav {
+    background-color: #b3e5fc;
+}
+
+.nav-wrapper {
+    background-color: #01579b;
+}
+
+.nav-link {
+    font-size: 16px;
+}
+.user-image-size {
+    height: 55px;
+    width: 48px;
+    margin: 5px 20px;
+}
+
+/* write media query to check user image size 993px */
+#clickMeButton {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#cardImg {
+    height: 300px;
+}
+
+/* .modal-fixed-footer {
+    background-color: transparent;
+    box-shadow: none;
+} */
+
+/* .modal-content {
+    box-shadow: inset;
+} */
