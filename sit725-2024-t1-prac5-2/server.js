@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 require('./dbConnection.js');
 let router = require('./routers/router.js');
 
-app.use('/api/food',router);
+app.use('/api/food', router);
 
 app.get('/', (req, res) => {
     res.render(index.html);
