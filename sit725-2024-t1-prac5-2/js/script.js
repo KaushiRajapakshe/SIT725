@@ -1,20 +1,20 @@
 const clickMe = () => {
     alert("Thanks for clicking me. Hope you have a nice day!")
 }
-const getAllCards = () => {
-    $.get('/api/cards', (response) => {
-        if (response.statusCode == 200) {
-            getCarts(response.data);
-        }
-        else {
-            console.log(response)
+
+const getAllFoods = () => {
+    $.ajax({
+        url: '/api/food',
+        type: 'GET',
+        success: (result) => {
+            getFoods(result.data);
         }
     })
 }
 
-const addCard = (cart) => {
+const postFood = (cart) => {
     $.ajax({
-        url: '/api/card',
+        url: '/api/food',
         data: cart,
         type: 'POST',
         success: (result) => {
@@ -24,7 +24,7 @@ const addCard = (cart) => {
     })
 }
 
-const getCarts = (items) => {
+const getFoods = (items) => {
     items.forEach((item) => {
         let itemToAppend =
             '<div class="col s4 center-align">' +
@@ -56,7 +56,7 @@ const submitForm = () => {
     formData.description = $('#description').val();
 
     console.log(formData);
-    addCard(formData);
+    postFood(formData);
 }
 
 $(document).ready(function () {
@@ -65,5 +65,5 @@ $(document).ready(function () {
         submitForm();
     });
     $('.modal').modal();
-    getAllCards();
+    getAllFoods();
 });
