@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
+                    echo "Fetch the source code from the directory path specified by the environment variable ${env.DIRECTORY_PATH}."
                     echo "Compile the code and generate any necessary artifacts"
                 }
             }
@@ -15,6 +16,19 @@ pipeline {
                     subject: "Build Status Email",
                     body: "Build was successful!"
                 }
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                echo "Running unit tests."
+                echo "Running integration tests."
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                echo "Deploy the application to a testing environment specified by the environment variable ${env.TESTING_ENVIRONMENT}."
             }
         }
     }
