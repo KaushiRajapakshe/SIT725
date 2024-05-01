@@ -31,6 +31,13 @@ pipeline {
                     echo "Running unit tests and integration tests"
                 }
             }
+            post {
+                success {
+                    mail to: "kaushi.rajapakshe1@gmail.com",
+                    subject: "Test Status Email",
+                    body: "Unit and Intergration Test was successful!"
+                }
+            }
         }
 
         stage('Code Analysis') {
@@ -45,6 +52,13 @@ pipeline {
             steps {
                 script {
                     echo "Performing security scan using a security scanning toolusing OWASP"
+                }
+            }
+            post {
+                success {
+                    mail to: "kaushi.rajapakshe1@gmail.com",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan was successful!"
                 }
             }
         }
@@ -62,6 +76,11 @@ pipeline {
                     echo "Running integration tests on the staging environment"
                 }
             }
+            success {
+                    mail to: "kaushi.rajapakshe1@gmail.com",
+                    subject: "Test Status Email on Staging",
+                    body: "Unit and Intergration Test on Staging was successful!"
+                }
         }
         
         stage('Deploy to Production') {
