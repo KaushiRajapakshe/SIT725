@@ -2,11 +2,6 @@
 // 6.1C - SIT753
 pipeline {
     agent any
-    environment {
-        DIRECTORY_PATH = "/Users/kaushirajapakshe/Documents/Deakin/MSC/Year 1/T1/SIT753/OnTrack/5.1P"
-        TESTING_ENVIRONMENT = "testing_environment"
-        PRODUCTION_ENVIRONMENT = "Kaushalya_Rajapaksha"
-    }
     stages {
         stage('Build') {
             steps {
