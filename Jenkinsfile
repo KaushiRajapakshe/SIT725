@@ -57,7 +57,7 @@ pipeline {
                 }
             }
         }
-        stage('Integration Tests on Staging') {
+        stage('Deploy Tests on Staging') {
             steps {
                 script {
                     echo "Deploying the application to a staging server using AWS EC2 instance"
@@ -71,7 +71,7 @@ pipeline {
                     echo "Running integration tests on the staging environment"
                 }
             }
-             post {
+            post {
                 success {
                     mail to: "kaushi.rajapakshe1@gmail.com",
                     subject: "Test Status Email on Staging",
