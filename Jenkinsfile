@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    MAVEN_VERSION = "sh(script: 'mvn --version | grep 'Apache Maven'', returnStdout: true).trim()"
+                    MAVEN_VERSION = sh(script: 'mvn --version | grep "Apache Maven"', returnStdout: true).trim()
                     echo "Compile the code and generate any necessary artifacts using Maven"
                     echo "Maven Version (Unix): ${MAVEN_VERSION}"
                 }
@@ -46,7 +46,7 @@ pipeline {
         stage('Security Scan') {
             steps {
                 script {
-                    echo "Performing security scan using a security scanning toolusing OWASP"
+                    echo "Performing security scan using a security scanning tool using OWASP"
                 }
             }
             post {
