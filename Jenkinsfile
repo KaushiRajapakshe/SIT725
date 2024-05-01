@@ -6,9 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    MAVEN_VERSION = sh(script: 'mvn --version | grep "Apache Maven"', returnStdout: true).trim()
                     echo "Compile the code and generate any necessary artifacts using Maven"
-                    echo "Maven Version (Unix): ${MAVEN_VERSION}"
                 }
             }
             post {
