@@ -76,11 +76,13 @@ pipeline {
                     echo "Running integration tests on the staging environment"
                 }
             }
-            success {
+             post {
+                success {
                     mail to: "kaushi.rajapakshe1@gmail.com",
                     subject: "Test Status Email on Staging",
                     body: "Unit and Intergration Test on Staging was successful!"
                 }
+            }
         }
         
         stage('Deploy to Production') {
