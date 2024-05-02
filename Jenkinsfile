@@ -9,13 +9,6 @@ pipeline {
                     echo "Compile the code and generate any necessary artifacts using Maven"
                 }
             }
-            post {
-                success {
-                    mail to: "kaushi.rajapakshe1@gmail.com",
-                    subject: "Build Status Email",
-                    body: "Build was successful!"
-                }
-            }
         }
 
         stage('Unit and Integration Tests') {
@@ -26,9 +19,10 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "kaushi.rajapakshe1@gmail.com",
-                    subject: "Test Status Email",
-                    body: "Unit and Intergration Test was successful!"
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "SUCCESS! - Unit and Integration Tests Status Email", body: "Unit and Intergration Tests was successful!"
+                }
+                failure {
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "FAILED! - Unit and Integration Tests Status Email", body: "Unit and Intergration Tests failed. Please check the logs for details."
                 }
             }
         }
@@ -49,9 +43,10 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "kaushi.rajapakshe1@gmail.com",
-                    subject: "Security Scan Status Email",
-                    body: "Security Scan was successful!"
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "SUCCESS! - Security Scan Status Email", body: "Security Scan was successful!"
+                }
+                failure {
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "FAILED! - Security Scan Status Email", body: "Security Scan failed. Please check the logs for details."
                 }
             }
         }
@@ -71,9 +66,10 @@ pipeline {
             }
             post {
                 success {
-                    mail to: "kaushi.rajapakshe1@gmail.com",
-                    subject: "Test Status Email on Staging",
-                    body: "Unit and Intergration Test on Staging was successful!"
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "SUCCESS! - Integration Tests Status Email on Staging", body: "Intergration Test on Staging was successful!"
+                }
+                failure {
+                    emailext attachLog: true, to: 'kaushi.rajapakshe1@gmail.com', subject: "FAILED! - Integration Tests Status Email", body: "Intergration Tests on Staging failed. Please check the logs for details."
                 }
             }
         }
